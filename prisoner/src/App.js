@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Inmates from './components/Inmates';
+import Inmates from './components/Inmates'
 import InmatesForm from './components/InmatesForm';
 import {getData} from './actions';
 import {connect } from 'react-redux'
@@ -8,6 +8,7 @@ import {connect } from 'react-redux'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Login from './components/Login'
 import PrivateRoute from './components/PrivateRoute'
+
 
 class App extends React.Component {
 
@@ -20,27 +21,27 @@ class App extends React.Component {
 
       <Router>
       <div className="App">
-        <ul>
-          <li>
-            <Link to="/public">Public Page</Link>
-          </li>
-          <li>
-            <Link to="/protected">Protected Page</Link>
-          </li>
-        </ul>
-        <Route path="/login" component={Login} />
-        <PrivateRoute exact path="/protected" component={Inmates} />
-      </div>
-    
-
-
-
-      <div className="App">
-        <h1>Prison Employment Connection</h1>
-        <InmatesForm />
-        <div>
-          <Inmates inmates={this.props.inmates}/>
+     
+        <div className='nav'>
+          <div className='nav-tag'>
+            <Link to="/public">Home</Link>
+          </div>
+          <div className='nav-tag'>
+            <Link to="/protected">Login</Link>
+          </div>
+         
         </div>
+        <h1>Prison Employment Connection</h1>
+        <Route path="/login"  component={Login} /*component={login} *//>
+        <PrivateRoute exact path="/protected" component={InmatesForm}/>
+        <Route path="/public" component={Inmates}/>
+        {/* <Inmates inmates={this.props.inmates}/> */}
+      </div>
+     
+      <div>
+        {/* <h4>Add a potential employee</h4> */}
+          {/* <InmatesForm /> */}
+        
       </div>
       </Router>
     );

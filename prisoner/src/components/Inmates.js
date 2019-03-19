@@ -50,6 +50,7 @@ class Inmates extends React.Component {
 
 const mapStateToProps = state => {
     return {
+        inmates: state.inmateReducer.inmates,
         deletingData: state.inmateReducer.deletingData,
         error: state.inmateReducer.error,
         showUpdate: state.singleReducer.showUpdate,
