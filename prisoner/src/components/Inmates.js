@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {deleteData, updateSingleInmate, toggleShowUpdate} from '../actions';
+import {deleteData, updateSingleInmate, toggleShowUpdate, createData} from '../actions';
 import SelectedInmate from './SelectedInmate'
 import UpdateInmateForm from './UpdateInmateForm'
 
@@ -20,6 +20,12 @@ class Inmates extends React.Component {
     toggleShowUpdate = () => {
         this.props.toggleShowUpdate();
     }
+
+    addInmate = e => {
+        e.preventDefault();
+        this.props.createData(this.state.newInmate)
+    }
+
     render() {
         return (
             <div className='inmate-container'>
@@ -58,4 +64,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {deleteData, updateSingleInmate, toggleShowUpdate})(Inmates)
+export default connect(mapStateToProps, {deleteData, updateSingleInmate, toggleShowUpdate, createData})(Inmates)

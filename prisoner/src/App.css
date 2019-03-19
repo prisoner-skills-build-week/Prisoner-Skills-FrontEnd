@@ -26,9 +26,20 @@
 .nav {
   display: flex;
   justify-content: flex-end;
+  padding: 20px;
 }
 
-.nav-tag{
-  margin: 5px;
+.nav-link{
+  margin: 10px;
   text-decoration: none;
+}
+
+.single-description{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.single-shipping{
+  width: 80%;
+  margin: 0 auto;
 }

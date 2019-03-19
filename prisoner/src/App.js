@@ -5,6 +5,7 @@ import InmatesForm from './components/InmatesForm';
 import {getData} from './actions';
 import {connect } from 'react-redux'
 
+
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Login from './components/Login'
 import PrivateRoute from './components/PrivateRoute'
@@ -24,10 +25,11 @@ class App extends React.Component {
      
         <div className='nav'>
           <div className='nav-tag'>
-            <Link to="/public">Home</Link>
+
+            <Link className='nav-link' to="/public">Home</Link>
           </div>
           <div className='nav-tag'>
-            <Link to="/protected">Login</Link>
+            <Link className='nav-link' to="/protected">Login</Link>
           </div>
          
         </div>
@@ -35,7 +37,7 @@ class App extends React.Component {
         <Route path="/login"  component={Login} /*component={login} *//>
         <PrivateRoute exact path="/protected" component={InmatesForm}/>
         <Route path="/public" component={Inmates}/>
-        {/* <Inmates inmates={this.props.inmates}/> */}
+        <Route path="/public" component={InmatesForm} />
       </div>
      
       <div>
