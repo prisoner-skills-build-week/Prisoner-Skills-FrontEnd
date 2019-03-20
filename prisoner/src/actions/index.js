@@ -76,7 +76,7 @@ export const updateSingleInmate = inmate => {
 
 
 export const deleteData = id => {
-    const deletedInmate = axios.delete('https://jsonplaceholder.typicode.com/users/delete', {
+    const deletedInmate = axios.delete('http://localhost:3333/items/:id', {
         data: {id}
     });
     return dispatch => {
