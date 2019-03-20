@@ -1,14 +1,13 @@
 import React from 'react';
 import './App.css';
-import Inmates from './components/Inmates'
-import InmatesForm from './components/InmatesForm';
 import {getData} from './actions';
 import {connect } from 'react-redux'
-
-
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+
 import Login from './components/Login'
 import PrivateRoute from './components/PrivateRoute'
+import Inmates from './components/Inmates'
+import InmatesForm from './components/InmatesForm';
 
 
 class App extends React.Component {
@@ -34,10 +33,11 @@ class App extends React.Component {
          
         </div>
         <h1>Prison Employment Connection</h1>
-        <Route path="/login"  component={Login} /*component={login} *//>
+        <Route path="/login" component={Login} /*component={login} *//>
         <PrivateRoute exact path="/protected" component={InmatesForm}/>
         <Route path="/public" component={Inmates}/>
         <Route path="/public" component={InmatesForm} />
+        
       </div>
      
       <div>

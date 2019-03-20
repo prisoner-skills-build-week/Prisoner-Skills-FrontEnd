@@ -3,21 +3,28 @@ import {connect} from 'react-redux';
 import {createData} from '../actions'
 
 class InmateForm extends React.Component {
+
+
     state = {
-        name: '',
-        description: '',
-        shipping: ''
+            name: '',
+            price: '',
+            imageUrl: '',
+            description: '',
+            shipping: ''
     }
 
     handleInputChanges = e => {
-        this.setState({ [e.target.name]: e.target.value })
+        e.persist();
+        this.setState(prevState => ({ 
+            ...prevState.prison,
+            [e.target.name]: e.target.value }))
     }
 
     handleAddInmate = e => {
         e.preventDefault()
-        const {name, description, shipping } = this.state;
-        this.props.createData({ name, description, shipping});
-        this.setState({name: '', description: '', shipping: '' })
+        const {name, price, imageUrl, description, shipping } = this.state;
+        this.props.createData({ name, price, imageUrl, description, shipping});
+        this.setState({name: '', price: '', imageUrl: '', description: '', shipping: '' })
     };
 
     render() {
@@ -29,6 +36,20 @@ class InmateForm extends React.Component {
                     name='name'
                     type='text'
                     placeholder='name'
+                    onChange={this.handleInputChanges}
+                />
+                <input 
+                    value={this.state.price}
+                    name='price'
+                    type='text'
+                    placeholder='price'
+                    onChange={this.handleInputChanges}
+                />
+                <input 
+                    value={this.state.imageUrl}
+                    name='imageUrl'
+                    type='text'
+                    placeholder='imageUrl'
                     onChange={this.handleInputChanges}
                 />
                 <input 
