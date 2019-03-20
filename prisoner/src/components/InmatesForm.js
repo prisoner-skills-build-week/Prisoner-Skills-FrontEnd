@@ -5,8 +5,8 @@ import {createData} from '../actions'
 class InmateForm extends React.Component {
     state = {
         name: '',
-        release: '',
-        state: ''
+        description: '',
+        shipping: ''
     }
 
     handleInputChanges = e => {
@@ -15,9 +15,9 @@ class InmateForm extends React.Component {
 
     handleAddInmate = e => {
         e.preventDefault()
-        const {name, release, state } = this.state;
-        this.props.createData({ name, release, state});
-        this.setState({name: '', release: '', state: '' })
+        const {name, description, shipping } = this.state;
+        this.props.createData({ name, description, shipping});
+        this.setState({name: '', description: '', shipping: '' })
     };
 
     render() {
@@ -32,17 +32,17 @@ class InmateForm extends React.Component {
                     onChange={this.handleInputChanges}
                 />
                 <input 
-                    value={this.state.release}
-                    name='release'
+                    value={this.state.description}
+                    name='description'
                     type='text'
-                    placeholder='release'
+                    placeholder='description'
                     onChange={this.handleInputChanges}
                 />
                 <input 
-                    value={this.state.state}
-                    name='state'
+                    value={this.state.shipping}
+                    name='shipping'
                     type='text'
-                    placeholder='state'
+                    placeholder='shipping'
                     onChange={this.handleInputChanges}
                 />
             

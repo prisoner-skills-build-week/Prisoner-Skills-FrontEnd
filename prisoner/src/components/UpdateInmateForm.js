@@ -4,8 +4,8 @@ const UpdateFriendForm = props => {
     return (
         <form>
             <input placeholder={props.inmate.name} />
-            <input placeholder={props.inmate.release} />
-            <input placeholder={props.inmate.state} />
+            <input placeholder={props.inmate.description} />
+            <input placeholder={props.inmate.shipping} />
         </form>
     )
 }
